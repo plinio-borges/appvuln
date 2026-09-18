@@ -1,23 +1,60 @@
 name: DAST Completo - Banco
-on: [push]
-
+ 
+on:
+  push:
+ 
 jobs:
   preparar-alvo-e-scan:
     runs-on: ubuntu-latest
+ 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+ 
       - name: Subir aplicacao
         run: |
           docker build -t nikto-vulnerable .
-          docker run --name nikto-vuln --network host -p 3000:3000 nikto-vulnerable
-          sleep 30
+ 
+          docker run -d \
+            --name nikto-vuln \
+            -p 3000:3000 \
+            nikto-vulnerable
+ 
+      - name: Aguardar aplicacao
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://localhost:3000 > /dev/null; then
+              echo "Aplicacao disponivel"
+              exit 0
+            fi
+ 
+            echo "Aguardando aplicacao..."
+            sleep 2
+          done
+ 
+          echo "ERRO: aplicacao nao iniciou"
+          docker logs nikto-vuln
+          exit 1
+ 
       - name: Nikto (higiene do servidor)
         run: |
-  nikto -h http://localhost:3000 -Format htm \
-      -output /tmp/nikto-report.html 
+          mkdir -p "${{ github.workspace }}/nikto-output"
+ 
+          docker run --rm \
+            --user root \
+            --network host \
+            -v "${{ github.workspace }}/nikto-output:/tmp" \
+            ghcr.io/sullo/nikto:2.6.1 \
+            -h http://localhost:3000 \
+            -Format htm \
+            -output /tmp/nikto-report
+ 
       - name: Nuclei (falhas conhecidas)
         uses: projectdiscovery/nuclei-action@main
-        with: { target: 'http://localhost:3000' }
+        with:
+          target: 'http://localhost:3000'
+ 
       - name: ZAP Baseline (analise DAST)
         uses: zaproxy/action-baseline@v0.12.0
-        with: { target: 'http://localhost:3000' }
+        with:
+          target: 'http://localhost:3000'
