@@ -1,0 +1,1939 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "fullName": "Trivy Vulnerability Scanner",
+          "informationUri": "https://github.com/aquasecurity/trivy",
+          "name": "Trivy",
+          "rules": [
+            {
+              "id": "CVE-2026-76642",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "util-linux: util-linux: failed external mount helper still runs privileged X-mount post-hooks"
+              },
+              "fullDescription": {
+                "text": "util-linux versions through 2.41.5 and 2.42.2 fail to check mount helper exit status before running post-mount hooks, allowing unprivileged users to execute privileged operations on pre-existing filesystems. Attackers can exploit X-mount.idmap or X-mount.owner hooks to clone filesystems with inherited suid bits or modify target inode permissions after a helper fails, achieving privilege escalation."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-76642",
+              "help": {
+                "text": "Vulnerability CVE-2026-76642\nSeverity: HIGH\nPackage: util-linux\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)\nutil-linux versions through 2.41.5 and 2.42.2 fail to check mount helper exit status before running post-mount hooks, allowing unprivileged users to execute privileged operations on pre-existing filesystems. Attackers can exploit X-mount.idmap or X-mount.owner hooks to clone filesystems with inherited suid bits or modify target inode permissions after a helper fails, achieving privilege escalation.",
+                "markdown": "**Vulnerability CVE-2026-76642**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|util-linux||[CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)|\n\nutil-linux versions through 2.41.5 and 2.42.2 fail to check mount helper exit status before running post-mount hooks, allowing unprivileged users to execute privileged operations on pre-existing filesystems. Attackers can exploit X-mount.idmap or X-mount.owner hooks to clone filesystems with inherited suid bits or modify target inode permissions after a helper fails, achieving privilege escalation."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-78408",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "util-linux: util-linux: nsenter --join-cgroup leaks root cgroup migration authority"
+              },
+              "fullDescription": {
+                "text": "The nsenter --join-cgroup option opens the target cgroup.procs file as root and leaves that file descriptor open across later namespace and credential changes and across execve(). Because the kernel checks later cgroup migrations using the credentials from the original open, a program run in an attacker-controlled target can inherit root's ability to move host processes between cgroups. After a privileged operator uses --join-cgroup against that target, an unprivileged user can migrate and terminate unrelated root processes."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-78408",
+              "help": {
+                "text": "Vulnerability CVE-2026-78408\nSeverity: HIGH\nPackage: util-linux\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)\nThe nsenter --join-cgroup option opens the target cgroup.procs file as root and leaves that file descriptor open across later namespace and credential changes and across execve(). Because the kernel checks later cgroup migrations using the credentials from the original open, a program run in an attacker-controlled target can inherit root's ability to move host processes between cgroups. After a privileged operator uses --join-cgroup against that target, an unprivileged user can migrate and terminate unrelated root processes.",
+                "markdown": "**Vulnerability CVE-2026-78408**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|util-linux||[CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)|\n\nThe nsenter --join-cgroup option opens the target cgroup.procs file as root and leaves that file descriptor open across later namespace and credential changes and across execve(). Because the kernel checks later cgroup migrations using the credentials from the original open, a program run in an attacker-controlled target can inherit root's ability to move host processes between cgroups. After a privileged operator uses --join-cgroup against that target, an unprivileged user can migrate and terminate unrelated root processes."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-78409",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "util-linux: util-linux: X-mount.subdir detached-tree resolution can escape via intermediate symlinks"
+              },
+              "fullDescription": {
+                "text": "The X-mount.subdir option uses a detached-tree fast path on Linux 6.15 and later and passes the configured subdirectory to open_tree() with AT_SYMLINK_NOFOLLOW. That flag does not stop intermediate symlink traversal or keep resolution inside the newly mounted filesystem. A local unprivileged user with an fstab-authorized X-mount.subdir entry can attach a host path at the intended mountpoint."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-78409",
+              "help": {
+                "text": "Vulnerability CVE-2026-78409\nSeverity: HIGH\nPackage: util-linux\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)\nThe X-mount.subdir option uses a detached-tree fast path on Linux 6.15 and later and passes the configured subdirectory to open_tree() with AT_SYMLINK_NOFOLLOW. That flag does not stop intermediate symlink traversal or keep resolution inside the newly mounted filesystem. A local unprivileged user with an fstab-authorized X-mount.subdir entry can attach a host path at the intended mountpoint.",
+                "markdown": "**Vulnerability CVE-2026-78409**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|util-linux||[CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)|\n\nThe X-mount.subdir option uses a detached-tree fast path on Linux 6.15 and later and passes the configured subdirectory to open_tree() with AT_SYMLINK_NOFOLLOW. That flag does not stop intermediate symlink traversal or keep resolution inside the newly mounted filesystem. A local unprivileged user with an fstab-authorized X-mount.subdir entry can attach a host path at the intended mountpoint."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-78410",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+              },
+              "fullDescription": {
+                "text": "A flaw was found in util-linux. Restricted bind mounts take the source path from fstab but do not pin that source before the privileged mount. A local unprivileged user who can replace the authorized source or a writable ancestor can redirect SUID mount(8) to bind another host directory. If the fstab entry also sets X-mount.owner, X-mount.group, or X-mount.mode, root then changes ownership or mode on that redirected inode."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-78410",
+              "help": {
+                "text": "Vulnerability CVE-2026-78410\nSeverity: HIGH\nPackage: util-linux\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)\nA flaw was found in util-linux. Restricted bind mounts take the source path from fstab but do not pin that source before the privileged mount. A local unprivileged user who can replace the authorized source or a writable ancestor can redirect SUID mount(8) to bind another host directory. If the fstab entry also sets X-mount.owner, X-mount.group, or X-mount.mode, root then changes ownership or mode on that redirected inode.",
+                "markdown": "**Vulnerability CVE-2026-78410**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|util-linux||[CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)|\n\nA flaw was found in util-linux. Restricted bind mounts take the source path from fstab but do not pin that source before the privileged mount. A local unprivileged user who can replace the authorized source or a writable ancestor can redirect SUID mount(8) to bind another host directory. If the fstab entry also sets X-mount.owner, X-mount.group, or X-mount.mode, root then changes ownership or mode on that redirected inode."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-54369",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "acl: Symlink traversal privilege escalation via libacl functions"
+              },
+              "fullDescription": {
+                "text": "acl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-54369",
+              "help": {
+                "text": "Vulnerability CVE-2026-54369\nSeverity: HIGH\nPackage: libacl1\nFixed Version: \nLink: [CVE-2026-54369](https://avd.aquasec.com/nvd/cve-2026-54369)\nacl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation.",
+                "markdown": "**Vulnerability CVE-2026-54369**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|libacl1||[CVE-2026-54369](https://avd.aquasec.com/nvd/cve-2026-54369)|\n\nacl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation."
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-69720",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution."
+              },
+              "fullDescription": {
+                "text": "The infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2025-69720",
+              "help": {
+                "text": "Vulnerability CVE-2025-69720\nSeverity: HIGH\nPackage: ncurses-bin\nFixed Version: \nLink: [CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)\nThe infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c.",
+                "markdown": "**Vulnerability CVE-2025-69720**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|ncurses-bin||[CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)|\n\nThe infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.8,
+                "cvssv3_vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+                "precision": "very-high",
+                "security-severity": "7.8",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-16742",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "systemd: systemd-homed: Local privilege escalation via missing home-record signature verification"
+              },
+              "fullDescription": {
+                "text": "systemd-homed contains a local privilege escalation bug via arbitrary system group addition to a local, logged in, homed-managed user"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-16742",
+              "help": {
+                "text": "Vulnerability CVE-2026-16742\nSeverity: HIGH\nPackage: libudev1\nFixed Version: \nLink: [CVE-2026-16742](https://avd.aquasec.com/nvd/cve-2026-16742)\nsystemd-homed contains a local privilege escalation bug via arbitrary system group addition to a local, logged in, homed-managed user",
+                "markdown": "**Vulnerability CVE-2026-16742**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|libudev1||[CVE-2026-16742](https://avd.aquasec.com/nvd/cve-2026-16742)|\n\nsystemd-homed contains a local privilege escalation bug via arbitrary system group addition to a local, logged in, homed-managed user"
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-9538",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "perl-Archive-Tar: perl-Archive-Tar: Denial of Service via crafted tar header with large entry size"
+              },
+              "fullDescription": {
+                "text": "Archive::Tar versions before 3.10 for Perl allow memory exhaustion via attacker controlled entry size field in tar header.\n\n_read_tar() reads each entry's payload with $handle-\u003eread($$data, $block), where $block is derived from the entry's 12-byte size field in the tar header with no upper bound on that value.\n\nA crafted header declaring a multi-gigabyte size causes Perl to allocate a scalar of that size."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-9538",
+              "help": {
+                "text": "Vulnerability CVE-2026-9538\nSeverity: HIGH\nPackage: perl-base\nFixed Version: \nLink: [CVE-2026-9538](https://avd.aquasec.com/nvd/cve-2026-9538)\nArchive::Tar versions before 3.10 for Perl allow memory exhaustion via attacker controlled entry size field in tar header.\n\n_read_tar() reads each entry's payload with $handle-\u003eread($$data, $block), where $block is derived from the entry's 12-byte size field in the tar header with no upper bound on that value.\n\nA crafted header declaring a multi-gigabyte size causes Perl to allocate a scalar of that size.",
+                "markdown": "**Vulnerability CVE-2026-9538**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|perl-base||[CVE-2026-9538](https://avd.aquasec.com/nvd/cve-2026-9538)|\n\nArchive::Tar versions before 3.10 for Perl allow memory exhaustion via attacker controlled entry size field in tar header.\n\n_read_tar() reads each entry's payload with $handle-\u003eread($$data, $block), where $block is derived from the entry's 12-byte size field in the tar header with no upper bound on that value.\n\nA crafted header declaring a multi-gigabyte size causes Perl to allocate a scalar of that size."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-6v7p-g79w-8964",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "MessagePack for Python: Out-of-bounds read / crash on Unpacker reuse after a caught error"
+              },
+              "fullDescription": {
+                "text": "### Impact\n\nIf the Unpacker is used repeatedly after an error occurs, the process may crash with a SEGV.\n\nIf the Unpacker is used repeatedly to unpack untrusted input from external sources, it may be vulnerable to a DoS attack.\n\n### Patches\n\nv1.2.1\n\n### Workarounds\n\nUsers should create a new Unpacker instead of reusing the same Unpacker after an error occurs.\n\nApplying the above patch can prevent SEGV, but reusing the Streaming Unpacker after it has encountered an error will not yield correct data. If an error occurs during Streaming Unpacking, the Stream and Streaming Unpacker should be discarded.\n\nTherefore, this is not just a workaround but the correct solution. The above patch only prevents crashes from incorrect usage."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/advisories/GHSA-6v7p-g79w-8964",
+              "help": {
+                "text": "Vulnerability GHSA-6v7p-g79w-8964\nSeverity: HIGH\nPackage: msgpack\nFixed Version: 1.2.1\nLink: [GHSA-6v7p-g79w-8964](https://github.com/advisories/GHSA-6v7p-g79w-8964)\n### Impact\n\nIf the Unpacker is used repeatedly after an error occurs, the process may crash with a SEGV.\n\nIf the Unpacker is used repeatedly to unpack untrusted input from external sources, it may be vulnerable to a DoS attack.\n\n### Patches\n\nv1.2.1\n\n### Workarounds\n\nUsers should create a new Unpacker instead of reusing the same Unpacker after an error occurs.\n\nApplying the above patch can prevent SEGV, but reusing the Streaming Unpacker after it has encountered an error will not yield correct data. If an error occurs during Streaming Unpacking, the Stream and Streaming Unpacker should be discarded.\n\nTherefore, this is not just a workaround but the correct solution. The above patch only prevents crashes from incorrect usage.",
+                "markdown": "**Vulnerability GHSA-6v7p-g79w-8964**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|msgpack|1.2.1|[GHSA-6v7p-g79w-8964](https://github.com/advisories/GHSA-6v7p-g79w-8964)|\n\n### Impact\n\nIf the Unpacker is used repeatedly after an error occurs, the process may crash with a SEGV.\n\nIf the Unpacker is used repeatedly to unpack untrusted input from external sources, it may be vulnerable to a DoS attack.\n\n### Patches\n\nv1.2.1\n\n### Workarounds\n\nUsers should create a new Unpacker instead of reusing the same Unpacker after an error occurs.\n\nApplying the above patch can prevent SEGV, but reusing the Streaming Unpacker after it has encountered an error will not yield correct data. If an error occurs during Streaming Unpacking, the Stream and Streaming Unpacker should be discarded.\n\nTherefore, this is not just a workaround but the correct solution. The above patch only prevents crashes from incorrect usage."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-47273",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "setuptools: Path Traversal Vulnerability in setuptools PackageIndex"
+              },
+              "fullDescription": {
+                "text": "setuptools is a package that allows users to download, build, install, upgrade, and uninstall Python packages. A path traversal vulnerability in `PackageIndex` is present in setuptools prior to version 78.1.1. An attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to remote code execution depending on the context. Version 78.1.1 fixes the issue."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2025-47273",
+              "help": {
+                "text": "Vulnerability CVE-2025-47273\nSeverity: HIGH\nPackage: setuptools\nFixed Version: 78.1.1\nLink: [CVE-2025-47273](https://avd.aquasec.com/nvd/cve-2025-47273)\nsetuptools is a package that allows users to download, build, install, upgrade, and uninstall Python packages. A path traversal vulnerability in `PackageIndex` is present in setuptools prior to version 78.1.1. An attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to remote code execution depending on the context. Version 78.1.1 fixes the issue.",
+                "markdown": "**Vulnerability CVE-2025-47273**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|setuptools|78.1.1|[CVE-2025-47273](https://avd.aquasec.com/nvd/cve-2025-47273)|\n\nsetuptools is a package that allows users to download, build, install, upgrade, and uninstall Python packages. A path traversal vulnerability in `PackageIndex` is present in setuptools prior to version 78.1.1. An attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to remote code execution depending on the context. Version 78.1.1 fixes the issue."
+              },
+              "properties": {
+                "cvssv40_baseScore": 7.7,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-66418",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "urllib3: urllib3: Unbounded decompression chain leads to resource exhaustion"
+              },
+              "fullDescription": {
+                "text": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2025-66418",
+              "help": {
+                "text": "Vulnerability CVE-2025-66418\nSeverity: HIGH\nPackage: urllib3\nFixed Version: 2.6.0\nLink: [CVE-2025-66418](https://avd.aquasec.com/nvd/cve-2025-66418)\nurllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0.",
+                "markdown": "**Vulnerability CVE-2025-66418**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|urllib3|2.6.0|[CVE-2025-66418](https://avd.aquasec.com/nvd/cve-2025-66418)|\n\nurllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0."
+              },
+              "properties": {
+                "cvssv40_baseScore": 8.9,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-66471",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "urllib3: urllib3 Streaming API improperly handles highly compressed data"
+              },
+              "fullDescription": {
+                "text": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2025-66471",
+              "help": {
+                "text": "Vulnerability CVE-2025-66471\nSeverity: HIGH\nPackage: urllib3\nFixed Version: 2.6.0\nLink: [CVE-2025-66471](https://avd.aquasec.com/nvd/cve-2025-66471)\nurllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data.",
+                "markdown": "**Vulnerability CVE-2025-66471**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|urllib3|2.6.0|[CVE-2025-66471](https://avd.aquasec.com/nvd/cve-2025-66471)|\n\nurllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data."
+              },
+              "properties": {
+                "cvssv40_baseScore": 8.9,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+                "precision": "very-high",
+                "security-severity": "8.0",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-21441",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "urllib3: urllib3 vulnerable to decompression-bomb safeguard bypass when following HTTP redirects (streaming API)"
+              },
+              "fullDescription": {
+                "text": "urllib3 is an HTTP client library for Python. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption. Starting in version 1.22 and prior to version 2.6.3, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client. Applications and libraries are affected when they stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects. Users should upgrade to at least urllib3 v2.6.3, in which the library does not decode content of redirect responses when `preload_content=False`. If upgrading is not immediately possible, disable redirects by setting `redirect=False` for requests to untrusted source."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-21441",
+              "help": {
+                "text": "Vulnerability CVE-2026-21441\nSeverity: HIGH\nPackage: urllib3\nFixed Version: 2.6.3\nLink: [CVE-2026-21441](https://avd.aquasec.com/nvd/cve-2026-21441)\nurllib3 is an HTTP client library for Python. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption. Starting in version 1.22 and prior to version 2.6.3, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client. Applications and libraries are affected when they stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects. Users should upgrade to at least urllib3 v2.6.3, in which the library does not decode content of redirect responses when `preload_content=False`. If upgrading is not immediately possible, disable redirects by setting `redirect=False` for requests to untrusted source.",
+                "markdown": "**Vulnerability CVE-2026-21441**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|urllib3|2.6.3|[CVE-2026-21441](https://avd.aquasec.com/nvd/cve-2026-21441)|\n\nurllib3 is an HTTP client library for Python. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption. Starting in version 1.22 and prior to version 2.6.3, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client. Applications and libraries are affected when they stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects. Users should upgrade to at least urllib3 v2.6.3, in which the library does not decode content of redirect responses when `preload_content=False`. If upgrading is not immediately possible, disable redirects by setting `redirect=False` for requests to untrusted source."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "cvssv40_baseScore": 8.9,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-44431",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "urllib3: urllib3: Information disclosure via cross-origin redirects forwarding sensitive headers"
+              },
+              "fullDescription": {
+                "text": "urllib3 is an HTTP client library for Python. From 1.23 to before 2.7.0, cross-origin redirects followed from the low-level API via ProxyManager.connection_from_url().urlopen(..., assert_same_host=False) still forward these sensitive headers. This vulnerability is fixed in 2.7.0."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-44431",
+              "help": {
+                "text": "Vulnerability CVE-2026-44431\nSeverity: HIGH\nPackage: urllib3\nFixed Version: 2.7.0\nLink: [CVE-2026-44431](https://avd.aquasec.com/nvd/cve-2026-44431)\nurllib3 is an HTTP client library for Python. From 1.23 to before 2.7.0, cross-origin redirects followed from the low-level API via ProxyManager.connection_from_url().urlopen(..., assert_same_host=False) still forward these sensitive headers. This vulnerability is fixed in 2.7.0.",
+                "markdown": "**Vulnerability CVE-2026-44431**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|urllib3|2.7.0|[CVE-2026-44431](https://avd.aquasec.com/nvd/cve-2026-44431)|\n\nurllib3 is an HTTP client library for Python. From 1.23 to before 2.7.0, cross-origin redirects followed from the low-level API via ProxyManager.connection_from_url().urlopen(..., assert_same_host=False) still forward these sensitive headers. This vulnerability is fixed in 2.7.0."
+              },
+              "properties": {
+                "cvssv3_baseScore": 5.3,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                "cvssv40_baseScore": 8.2,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+                "precision": "very-high",
+                "security-severity": "5.3",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "github-pat",
+              "name": "Secret",
+              "shortDescription": {
+                "text": "GitHub Personal Access Token"
+              },
+              "fullDescription": {
+                "text": "GITHUB_TOKEN=****************************************"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/aquasecurity/trivy/blob/main/pkg/fanal/secret/builtin-rules.go",
+              "help": {
+                "text": "Secret GitHub Personal Access Token\nSeverity: CRITICAL\nMatch: GITHUB_TOKEN=****************************************",
+                "markdown": "**Secret GitHub Personal Access Token**\n| Severity | Match |\n| --- | --- |\n|CRITICAL|GITHUB_TOKEN=****************************************|"
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "9.5",
+                "tags": [
+                  "secret",
+                  "security",
+                  "CRITICAL"
+                ]
+              }
+            },
+            {
+              "id": "stripe-secret-token",
+              "name": "Secret",
+              "shortDescription": {
+                "text": "Stripe Secret Key"
+              },
+              "fullDescription": {
+                "text": "PIX_API_KEY = \"****************************************yB6vD1fG0hJ2kL5mN8pQf\""
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/aquasecurity/trivy/blob/main/pkg/fanal/secret/builtin-rules.go",
+              "help": {
+                "text": "Secret Stripe Secret Key\nSeverity: CRITICAL\nMatch: PIX_API_KEY = \"****************************************yB6vD1fG0hJ2kL5mN8pQf\"",
+                "markdown": "**Secret Stripe Secret Key**\n| Severity | Match |\n| --- | --- |\n|CRITICAL|PIX_API_KEY = \"****************************************yB6vD1fG0hJ2kL5mN8pQf\"|"
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "9.5",
+                "tags": [
+                  "secret",
+                  "security",
+                  "CRITICAL"
+                ]
+              }
+            }
+          ],
+          "version": "0.74.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: bsdutils\nInstalled Version: 1:2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: bsdutils@1:2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: bsdutils\nInstalled Version: 1:2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: bsdutils@1:2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: bsdutils\nInstalled Version: 1:2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: bsdutils@1:2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: bsdutils\nInstalled Version: 1:2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: bsdutils@1:2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-54369",
+          "ruleIndex": 4,
+          "level": "error",
+          "message": {
+            "text": "Package: libacl1\nInstalled Version: 2.3.2-2+b1\nVulnerability CVE-2026-54369\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-54369](https://avd.aquasec.com/nvd/cve-2026-54369)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libacl1@2.3.2-2+b1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: libblkid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libblkid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: libblkid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libblkid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: libblkid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libblkid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: libblkid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libblkid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: liblastlog2-2\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: liblastlog2-2@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: liblastlog2-2\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: liblastlog2-2@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: liblastlog2-2\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: liblastlog2-2@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: liblastlog2-2\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: liblastlog2-2@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: libmount1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libmount1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: libmount1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libmount1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: libmount1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libmount1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: libmount1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libmount1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-69720",
+          "ruleIndex": 5,
+          "level": "error",
+          "message": {
+            "text": "Package: libncursesw6\nInstalled Version: 6.5+20250216-2\nVulnerability CVE-2025-69720\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libncursesw6@6.5+20250216-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: libsmartcols1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libsmartcols1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: libsmartcols1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libsmartcols1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: libsmartcols1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libsmartcols1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: libsmartcols1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libsmartcols1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-16742",
+          "ruleIndex": 6,
+          "level": "error",
+          "message": {
+            "text": "Package: libsystemd0\nInstalled Version: 257.13-1~deb13u1\nVulnerability CVE-2026-16742\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-16742](https://avd.aquasec.com/nvd/cve-2026-16742)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libsystemd0@257.13-1~deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-69720",
+          "ruleIndex": 5,
+          "level": "error",
+          "message": {
+            "text": "Package: libtinfo6\nInstalled Version: 6.5+20250216-2\nVulnerability CVE-2025-69720\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libtinfo6@6.5+20250216-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-16742",
+          "ruleIndex": 6,
+          "level": "error",
+          "message": {
+            "text": "Package: libudev1\nInstalled Version: 257.13-1~deb13u1\nVulnerability CVE-2026-16742\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-16742](https://avd.aquasec.com/nvd/cve-2026-16742)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libudev1@257.13-1~deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: libuuid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libuuid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: libuuid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libuuid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: libuuid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libuuid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: libuuid1\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: libuuid1@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: login\nInstalled Version: 1:4.16.0-2+really2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: login@1:4.16.0-2+really2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: login\nInstalled Version: 1:4.16.0-2+really2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: login@1:4.16.0-2+really2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: login\nInstalled Version: 1:4.16.0-2+really2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: login@1:4.16.0-2+really2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: login\nInstalled Version: 1:4.16.0-2+really2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: login@1:4.16.0-2+really2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: mount\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: mount@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: mount\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: mount@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: mount\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: mount@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: mount\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: mount@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-69720",
+          "ruleIndex": 5,
+          "level": "error",
+          "message": {
+            "text": "Package: ncurses-base\nInstalled Version: 6.5+20250216-2\nVulnerability CVE-2025-69720\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: ncurses-base@6.5+20250216-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-69720",
+          "ruleIndex": 5,
+          "level": "error",
+          "message": {
+            "text": "Package: ncurses-bin\nInstalled Version: 6.5+20250216-2\nVulnerability CVE-2025-69720\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2025-69720](https://avd.aquasec.com/nvd/cve-2025-69720)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: ncurses-bin@6.5+20250216-2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-9538",
+          "ruleIndex": 7,
+          "level": "error",
+          "message": {
+            "text": "Package: perl-base\nInstalled Version: 5.40.1-6+deb13u1\nVulnerability CVE-2026-9538\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-9538](https://avd.aquasec.com/nvd/cve-2026-9538)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: perl-base@5.40.1-6+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-76642",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: util-linux\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-76642\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-76642](https://avd.aquasec.com/nvd/cve-2026-76642)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: util-linux@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78408",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: util-linux\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78408\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78408](https://avd.aquasec.com/nvd/cve-2026-78408)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: util-linux@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78409",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: util-linux\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78409\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78409](https://avd.aquasec.com/nvd/cve-2026-78409)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: util-linux@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-78410",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: util-linux\nInstalled Version: 2.41.5-0+deb13u1\nVulnerability CVE-2026-78410\nSeverity: HIGH\nFixed Version: \nLink: [CVE-2026-78410](https://avd.aquasec.com/nvd/cve-2026-78410)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "library/appsec",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "library/appsec: util-linux@2.41.5-0+deb13u1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-6v7p-g79w-8964",
+          "ruleIndex": 8,
+          "level": "error",
+          "message": {
+            "text": "Package: msgpack\nInstalled Version: 1.1.2\nVulnerability GHSA-6v7p-g79w-8964\nSeverity: HIGH\nFixed Version: 1.2.1\nLink: [GHSA-6v7p-g79w-8964](https://github.com/advisories/GHSA-6v7p-g79w-8964)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Python",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "Python: msgpack@1.1.2"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-47273",
+          "ruleIndex": 9,
+          "level": "error",
+          "message": {
+            "text": "Package: setuptools\nInstalled Version: 70.3.0\nVulnerability CVE-2025-47273\nSeverity: HIGH\nFixed Version: 78.1.1\nLink: [CVE-2025-47273](https://avd.aquasec.com/nvd/cve-2025-47273)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Python",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "Python: setuptools@70.3.0"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-66418",
+          "ruleIndex": 10,
+          "level": "error",
+          "message": {
+            "text": "Package: urllib3\nInstalled Version: 1.26.20\nVulnerability CVE-2025-66418\nSeverity: HIGH\nFixed Version: 2.6.0\nLink: [CVE-2025-66418](https://avd.aquasec.com/nvd/cve-2025-66418)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA: urllib3@1.26.20"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-66471",
+          "ruleIndex": 11,
+          "level": "error",
+          "message": {
+            "text": "Package: urllib3\nInstalled Version: 1.26.20\nVulnerability CVE-2025-66471\nSeverity: HIGH\nFixed Version: 2.6.0\nLink: [CVE-2025-66471](https://avd.aquasec.com/nvd/cve-2025-66471)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA: urllib3@1.26.20"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-21441",
+          "ruleIndex": 12,
+          "level": "error",
+          "message": {
+            "text": "Package: urllib3\nInstalled Version: 1.26.20\nVulnerability CVE-2026-21441\nSeverity: HIGH\nFixed Version: 2.6.3\nLink: [CVE-2026-21441](https://avd.aquasec.com/nvd/cve-2026-21441)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA: urllib3@1.26.20"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-44431",
+          "ruleIndex": 13,
+          "level": "error",
+          "message": {
+            "text": "Package: urllib3\nInstalled Version: 1.26.20\nVulnerability CVE-2026-44431\nSeverity: HIGH\nFixed Version: 2.7.0\nLink: [CVE-2026-44431](https://avd.aquasec.com/nvd/cve-2026-44431)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "usr/local/lib/python3.13/site-packages/urllib3-1.26.20.dist-info/METADATA: urllib3@1.26.20"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "github-pat",
+          "ruleIndex": 14,
+          "level": "error",
+          "message": {
+            "text": "Artifact: /app/.env\nType: \nSecret GitHub Personal Access Token\nSeverity: CRITICAL\nMatch: GITHUB_TOKEN=****************************************"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/app/.env",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1,
+                  "endLine": 15,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "/app/.env"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "stripe-secret-token",
+          "ruleIndex": 15,
+          "level": "error",
+          "message": {
+            "text": "Artifact: /app/.env\nType: \nSecret Stripe Secret Key\nSeverity: CRITICAL\nMatch: PIX_API_KEY=****************************************yB6vD1fG0hJ2kL5mN8pQ"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/app/.env",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 1,
+                  "endLine": 9,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "/app/.env"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "stripe-secret-token",
+          "ruleIndex": 15,
+          "level": "error",
+          "message": {
+            "text": "Artifact: /app/__pycache__/config.cpython-313.pyc\nType: \nSecret Stripe Secret Key\nSeverity: CRITICAL\nMatch: Binary file \"/app/__pycache__/config.cpython-313.pyc\" matches a rule \"Stripe Secret Key\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/app/__pycache__/config.cpython-313.pyc",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1,
+                  "endLine": 11,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "/app/__pycache__/config.cpython-313.pyc"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "stripe-secret-token",
+          "ruleIndex": 15,
+          "level": "error",
+          "message": {
+            "text": "Artifact: /app/config.py\nType: \nSecret Stripe Secret Key\nSeverity: CRITICAL\nMatch: PIX_API_KEY = \"****************************************yB6vD1fG0hJ2kL5mN8pQf\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/app/config.py",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 1,
+                  "endLine": 31,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "/app/config.py"
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits",
+      "properties": {
+        "imageID": "sha256:0613afaba5193ca670f10f1f584a51b6879b73164df9028d4796bca0a510c85f",
+        "imageName": "appsec:1.0",
+        "repoDigests": [],
+        "repoTags": [
+          "appsec:1.0"
+        ]
+      }
+    }
+  ]
+}
